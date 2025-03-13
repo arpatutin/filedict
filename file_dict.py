@@ -1,6 +1,7 @@
 from collections import UserDict
 import pickle
 
+
 class FileDict(UserDict):
     def __init__(self, filename):
         super().__init__()
@@ -28,3 +29,7 @@ class FileDict(UserDict):
 
     def get(self, key, default=None):
         return self.data.get(key, default)
+    
+    def set(self, new_dict):
+        self.data = new_dict
+        self._upsync()
